@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Simple Web Page</title>
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='styles.css') }}"
+    />
+    <!-- Include Google Fonts -->
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <header>
+      <div class="container">
+        <h1 class="title">Simple Web Page</h1>
+        <nav>
+          <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="/submissions">Submissions</a></li>
+            <li><a href="#">Contact</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <div class="main-container">
+        <div class="container">
+          <h2>Welcome to My Website!</h2>
+          <div class="content-box">
+            <p>
+              This is a simple, colorful web page created using HTML and CSS. It
+              includes a header with a title and navigation menu, a main content
+              area with some text, and a footer with contact information.
+            </p>
+            <div class="dynamic-content">
+              <p><strong>Current Date and Time:</strong> {{ current_time }}</p>
+              <p><strong>Random Quote:</strong> "{{ quote }}"</p>
+            </div>
+            <div class="form-container">
+              <h3>Submit Your Details</h3>
+              <form action="/submit" method="POST">
+                <label for="name"><b>Name:</b></label>
+                <input type="text" id="name" name="name" required /><br />
+                <label for="email"><b>Email:</b></label>
+                <input
+                  type="email"
+                  id="email"
+                  name="email"
+                  required
+                /><br /><br />
+                <input type="submit" value="Submit" />
+              </form>
+              <a href="/submissions">View All Submissions</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <footer>
+      <div class="container">
+        <p>
+          Contact us: <a href="mailto:info@example.com">info@example.com</a>
+        </p>
+      </div>
+    </footer>
+  </body>
+</html>

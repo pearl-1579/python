@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Submissions</title>
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='styles.css') }}"
+    />
+    <!-- Include Google Fonts -->
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      /* Additional styles can be added here if necessary */
+      body {
+        font-family: "Poppins", sans-serif;
+        background-color: #e3f2fd;
+        color: #333;
+        line-height: 1.6;
+        margin: 0;
+        padding: 0;
+      }
+      .container {
+        max-width: 960px;
+        margin: 0 auto;
+        padding: 0 20px;
+        box-sizing: border-box;
+      }
+      header {
+        background-color: #3f51b5;
+        color: white;
+        padding: 1rem 0;
+      }
+      header .container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+      header .title {
+        font-size: 2rem;
+        font-weight: 700;
+        margin-left: 20px;
+      }
+      main {
+        background-color: #ffffff;
+        padding: 2rem 0;
+      }
+      .main-container {
+        background-color: #e3f2fd;
+        padding: 2rem 0;
+      }
+      .content-box {
+        background-color: #fff;
+        padding: 1.5rem;
+        border-radius: 5px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      }
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 1rem;
+      }
+      table th,
+      table td {
+        border: 1px solid #ddd;
+        padding: 8px;
+        text-align: left;
+      }
+      table th {
+        background-color: #f2f2f2;
+        color: #333;
+      }
+      table tbody tr:nth-child(even) {
+        background-color: #f2f2f2;
+      }
+      footer {
+        background-color: #3f51b5;
+        color: white;
+        text-align: center;
+        padding: 1rem 0;
+        position: fixed;
+        width: 100%;
+        bottom: 0;
+      }
+      footer a {
+        color: white;
+        font-weight: bold;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <div class="container">
+        <h1 class="title">Submissions</h1>
+        <nav>
+          <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="/submissions">Submissions</a></li>
+            <li><a href="#">Contact</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <div class="main-container">
+        <div class="container">
+          <h2>Submitted Data</h2>
+          <div class="content-box">
+            <table>
+              <thead>
+                <tr>
+                  <th>Name</th>
+                  <th>Email</th>
+                  <th>Timestamp</th>
+                </tr>
+              </thead>
+              <tbody>
+                {% for submission in submissions %}
+                <tr>
+                  <td>{{ submission['name'] }}</td>
+                  <td>{{ submission['email'] }}</td>
+                  <td>{{ submission['timestamp'] }}</td>
+                </tr>
+                {% endfor %}
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <footer>
+      <div class="container">
+        <p>
+          Contact us: <a href="mailto:info@example.com">info@example.com</a>
+        </p>
+      </div>
+    </footer>
+  </body>
+</html>
